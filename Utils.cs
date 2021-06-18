@@ -19,27 +19,39 @@ namespace Flow_Control
             {
                 ui.Print(prompt);
                 answer = ui.GetInput();
+                int.TryParse(answer, out n);
 
-                if (string.IsNullOrWhiteSpace(answer))
+                if (answer.Equals("Q"))
+                {
+                    break;
+                }
+
+                else if (string.IsNullOrWhiteSpace(answer)) // BREAKS THE PROGRAM
                 {
                     ui.Print("Please enter something");
                 }
-                if (answer.Equals("Q"))
-                { 
+
+                //if (int.TryParse(answer, out n))
+                //{
+                //    success = n > -1 && n < 145;
+                //    break; // HIGHLANDER
+                //}
+                else if (n < 0 ^ n > 145) // ^ Or operator
+                {
+                    ui.Print("Please enter an Age between 0 and 145");
+                }
+                else if(n > -1 && n < 145)
+                {
+                    success = true;
                     break;
                 }
-                if (int.TryParse(answer, out n))
+                else // Probably will never be used. But WHo knows.
                 {
-                    success = n > -1 && n < 145;
-                    break; // HIGHLANDER
-                }
-                else
                     ui.Print("Please enter an Age between 0 and 145");
+                }
 
 
-
-
-            } while (success!);
+            } while (!success);
             //return answer, n;
             return answer;
         }
