@@ -18,5 +18,9 @@ namespace Flow_Control
         {
             return Console.ReadLine();
         }
+        public void PrintWrite(string message) // Public för interface
+        {
+            Console.Write(message);
+        }
     }
 }

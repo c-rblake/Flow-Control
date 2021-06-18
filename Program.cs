@@ -35,11 +35,28 @@ namespace Flow_Control
                 case "3":
                     PrintTicketPrices();
                     break;
+                case "4":
+                    ImplementSplit();
+                    break;
 
                 default:
                     ui.Print("Error");
                     break;
             }
+        }
+
+        private static void ImplementSplit()
+        {
+            var cmdArgs = ui.GetInput();
+            var split_Args = cmdArgs.Split();
+            //foreach (string item in split_Args)
+            //{
+            //    ui.PrintWrite(item);
+            //}
+            string thridWord = split_Args[2];
+            ui.Print(thridWord);
+
+
         }
 
         private static void RepeatTenTimes()
@@ -49,8 +66,7 @@ namespace Flow_Control
             int length = 10;
             for (int i = 0; i < length; i++)
             {
-                ui.Print(answer);             
-
+                ui.PrintWrite(answer);             
             }
         }
 
@@ -88,10 +104,12 @@ namespace Flow_Control
 
         private static void ShowMainMenu()
         {
+            ui.Print(" ");
             ui.Print("Type 0 to close the program");
             ui.Print("Type 1 to Enter Cinema goer's Age"); // Better How Many Tickets --> How many are this age... But math..
             ui.Print("Type 2 to try Awsome Cinema Functionality (repeat 10 times)");
             ui.Print("Type 3 to Print Ticket Prices");
+            ui.Print("Type 4 Try our SPLIT Functionality");
         }
 
 

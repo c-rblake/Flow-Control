@@ -4,5 +4,6 @@
     {
         string GetInput();
         void Print(string message);
+        void PrintWrite(string item);
     }
 }
