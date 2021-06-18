@@ -30,6 +30,9 @@ namespace Flow_Control
                     AddCinemaGoer();
                     break;
                 case "2":
+                    RepeatTenTimes();
+                    break;
+                case "3":
                     PrintTicketPrices();
                     break;
 
@@ -39,9 +42,30 @@ namespace Flow_Control
             }
         }
 
+        private static void RepeatTenTimes()
+        {
+            ui.Print("Please enter a Text, the program will auto-magically repeat it 10 times!");
+            string answer = ui.GetInput();
+            int length = 10;
+            for (int i = 0; i < length; i++)
+            {
+                ui.Print(answer);             
+
+            }
+        }
+
         private static void PrintTicketPrices()
         {
             CinemaGoer[] partyMembers = party.GetMembers();
+
+            int total = 0;
+            foreach (CinemaGoer partyMember in partyMembers)
+            {
+                ui.Print(partyMember.ToString());
+                total += partyMember.TicketPrice;
+            }
+            string s = $"The Total cost for the party is: {total.ToString()}";
+            ui.Print(s);
         }
 
         private static void AddCinemaGoer()
@@ -53,9 +77,9 @@ namespace Flow_Control
                 string age = Utils.AskForString("Enter Age: ", ui);
                 if (age.Equals("Q")) break;
 
-                int age = Utils.AskForInt("Enter Age:", ui);
+                int intAge = Utils.ParseInt(age, ui);
 
-                CinemaGoer member = new(age);
+                CinemaGoer member = new(intAge);
 
                 party.AddMember(member);
 
@@ -65,8 +89,9 @@ namespace Flow_Control
         private static void ShowMainMenu()
         {
             ui.Print("Type 0 to close the program");
-            ui.Print("Type 1 to Enter Cinama goer's Age"); // Better How Many Tickets --> How many are this age... But math..
-            ui.Print("Type 2 to Print Ticket Prices");
+            ui.Print("Type 1 to Enter Cinema goer's Age"); // Better How Many Tickets --> How many are this age... But math..
+            ui.Print("Type 2 to try Awsome Cinema Functionality (repeat 10 times)");
+            ui.Print("Type 3 to Print Ticket Prices");
         }
 
 

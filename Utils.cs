@@ -21,11 +21,23 @@ namespace Flow_Control
                 answer = ui.GetInput();
 
                 if (string.IsNullOrWhiteSpace(answer))
+                {
                     ui.Print("Please enter something");
+                }
+                if (answer.Equals("Q"))
+                { 
+                    break;
+                }
                 if (int.TryParse(answer, out n))
-                    success = n > -1 && n <145;
+                {
+                    success = n > -1 && n < 145;
+                    break; // HIGHLANDER
+                }
                 else
-                    ui.Print("Please enter an age between 0 and 145");
+                    ui.Print("Please enter an Age between 0 and 145");
+
+
+
 
             } while (success!);
             //return answer, n;
@@ -33,33 +45,23 @@ namespace Flow_Control
         }
 
     
-        internal static int AskForInt(string prompt, IUI ui)
+        internal static int ParseInt(string input, IUI ui)
         {
             bool success = false;
             int answer;
 
             do
             {
-                string input = AskForString(prompt, ui);
-                success = int.TryParse(input, out answer) && answer > -1 && answer <145;
+                success = int.TryParse(input, out answer); //&& answer > -1 && answer <145; already validated.
+                ui.Print($"Added a member with age {input}");
 
                 // ctrl+k+c to comment ctrl+k+u to uncomment in visual studio
-
-
 
             } while (!success);
 
             return (answer);
-            //return age;
-
-
-
 
         }
 
-        internal static string ValidateInput(string v)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
