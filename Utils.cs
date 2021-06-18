@@ -31,6 +31,12 @@ namespace Flow_Control
                     ui.Print("Please enter something");
                 }
 
+                else if (string.IsNullOrWhiteSpace(answer)) // BREAKS THE PROGRAM
+                {
+                    //bool result = !string.Any(x => char.IsLetter(x));
+                    ui.Print("Please enter something");
+                }
+
                 //if (int.TryParse(answer, out n))
                 //{
                 //    success = n > -1 && n < 145;
@@ -40,7 +46,7 @@ namespace Flow_Control
                 {
                     ui.Print("Please enter an Age between 0 and 145");
                 }
-                else if(n > -1 && n < 145)
+                else if(n > -1 && n < 145) 
                 {
                     success = true;
                     break;
@@ -62,18 +68,29 @@ namespace Flow_Control
             bool success = false;
             int answer;
 
-            do
+            do //TODO INFITINITE LOOP - SKICKA JAG IN HEJ SÅ GÅR DET ÅT SKOGEN
             {
-                success = int.TryParse(input, out answer); //&& answer > -1 && answer <145; already validated.
-                ui.Print($"Added a member with age {input}");
+                if (int.TryParse(input, out answer)) //&& answer > -1 && answer <145; already validated.
+                {
+                    ui.Print($"Added a member with age {input}");
+                    success = true;
+                }
+                else
+                {
+                    ui.Print($"Could NOT add a member with age {input}. Try an age 0 to 145!");
+                    return -1;
+                }
+
+
 
                 // ctrl+k+c to comment ctrl+k+u to uncomment in visual studio
 
             } while (!success);
 
-            return (answer);
+            return answer;
 
         }
+
 
     }
 }

@@ -96,10 +96,17 @@ namespace Flow_Control
                 if (age.Equals("Q")) break;
 
                 int intAge = Utils.ParseInt(age, ui);
+                if(intAge >= 0)
+                {
+                    CinemaGoer member = new(intAge);
+                    party.AddMember(member);
+                }
+                //else
+                //{
+                //    ui.Print($"Could NOT add a member with that age. Try an age 0 to 145!");
+                //}
 
-                CinemaGoer member = new(intAge);
-
-                party.AddMember(member);
+                
 
             } while (true);
         }
