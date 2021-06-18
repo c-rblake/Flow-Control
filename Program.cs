@@ -47,6 +47,7 @@ namespace Flow_Control
 
         private static void ImplementSplit()
         {
+            ui.Print("Please enter a sentence with at least 3 words:");
             var cmdArgs = ui.GetInput();
             var split_Args = cmdArgs.Split();
             //foreach (string item in split_Args)
@@ -54,7 +55,8 @@ namespace Flow_Control
             //    ui.PrintWrite(item);
             //}
             string thridWord = split_Args[2];
-            ui.Print(thridWord);
+            string s = $"The third words is: {thridWord}. (Please buy tickets)";
+            ui.Print(s);
 
 
         }
