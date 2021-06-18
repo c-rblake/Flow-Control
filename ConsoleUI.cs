@@ -2,7 +2,8 @@
 
 namespace Flow_Control
 {
-    internal class ConsoleUI
+    internal class ConsoleUI : IUI
+    // TODO SKA GÖRAS OM TILL ETT INTERFACE
     {
         public ConsoleUI()
         {
@@ -13,7 +14,7 @@ namespace Flow_Control
             Console.WriteLine(message);
         }
 
-        internal string GetInput()
+        public string GetInput()
         {
             return Console.ReadLine();
         }
