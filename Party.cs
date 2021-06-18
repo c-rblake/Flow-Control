@@ -12,7 +12,7 @@ namespace Flow_Control
             cinemaParty = new List<CinemaGoer>();
         }
 
-        internal void AddMember(CinemaGoer member) // already CinemaGoer
+        internal void AddMember(CinemaGoer member) 
         {
             cinemaParty.Add(member);
         }

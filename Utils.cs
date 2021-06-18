@@ -5,8 +5,6 @@ namespace Flow_Control
     internal class Utils
     {
 
-        // TWO FUNCTIONS ONE TO DEAL WITH STRINGS ONE TO DEAL WITH INTS. Or Validation becomes very hard
-
         static Party cinemaparty = new Party();
         internal static string AskForString(string prompt, IUI ui)
             // A tuple would be nice here.
@@ -26,22 +24,11 @@ namespace Flow_Control
                     break;
                 }
 
-                else if (string.IsNullOrWhiteSpace(answer)) // BREAKS THE PROGRAM
+                else if (string.IsNullOrWhiteSpace(answer))
                 {
                     ui.Print("Please enter something");
                 }
 
-                else if (string.IsNullOrWhiteSpace(answer)) // BREAKS THE PROGRAM
-                {
-                    //bool result = !string.Any(x => char.IsLetter(x));
-                    ui.Print("Please enter something");
-                }
-
-                //if (int.TryParse(answer, out n))
-                //{
-                //    success = n > -1 && n < 145;
-                //    break; // HIGHLANDER
-                //}
                 else if (n < 0 ^ n > 145) // ^ Or operator
                 {
                     ui.Print("Please enter an Age between 0 and 145");
@@ -51,7 +38,7 @@ namespace Flow_Control
                     success = true;
                     break;
                 }
-                else // Probably will never be used. But WHo knows.
+                else // Probably will never be used. 
                 {
                     ui.Print("Please enter an Age between 0 and 145");
                 }
@@ -68,9 +55,9 @@ namespace Flow_Control
             bool success = false;
             int answer;
 
-            do //TODO INFITINITE LOOP - SKICKA JAG IN HEJ SÅ GÅR DET ÅT SKOGEN
+            do 
             {
-                if (int.TryParse(input, out answer)) //&& answer > -1 && answer <145; already validated.
+                if (int.TryParse(input, out answer)) 
                 {
                     ui.Print($"Added a member with age {input}");
                     success = true;
@@ -80,8 +67,6 @@ namespace Flow_Control
                     ui.Print($"Could NOT add a member with age {input}. Try an age 0 to 145!");
                     return -1;
                 }
-
-
 
                 // ctrl+k+c to comment ctrl+k+u to uncomment in visual studio
 

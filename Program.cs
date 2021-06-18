@@ -50,14 +50,9 @@ namespace Flow_Control
             ui.Print("Please enter a sentence with at least 3 words:");
             var cmdArgs = ui.GetInput();
             var split_Args = cmdArgs.Split();
-            //foreach (string item in split_Args)
-            //{
-            //    ui.PrintWrite(item);
-            //}
             string thridWord = split_Args[2];
             string s = $"The third words is: {thridWord}. (Please buy tickets)";
             ui.Print(s);
-
 
         }
 
@@ -100,13 +95,7 @@ namespace Flow_Control
                 {
                     CinemaGoer member = new(intAge);
                     party.AddMember(member);
-                }
-                //else
-                //{
-                //    ui.Print($"Could NOT add a member with that age. Try an age 0 to 145!");
-                //}
-
-                
+                }                
 
             } while (true);
         }

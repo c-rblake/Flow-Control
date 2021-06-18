@@ -3,7 +3,7 @@
 namespace Flow_Control
 {
     internal class ConsoleUI : IUI
-    // TODO SKA GÖRAS OM TILL ETT INTERFACE
+    
     {
         public ConsoleUI()
         {
