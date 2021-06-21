@@ -49,7 +49,7 @@ namespace Flow_Control
         {
             ui.Print("Please enter a sentence with at least 3 words:");
             var cmdArgs = ui.GetInput();
-            var split_Args = cmdArgs.Split();
+            var split_Args = cmdArgs.Split(" ", StringSplitOptions.RemoveEmptyEntries);
             string thridWord = split_Args[2];
             string s = $"The third words is: {thridWord}. (Please buy tickets)";
             ui.Print(s);
@@ -88,7 +88,7 @@ namespace Flow_Control
 
                 ui.Print("Please Enter the Age of Cinema goer. Q to Exit");
                 string age = Utils.AskForString("Enter Age: ", ui);
-                if (age.Equals("Q")) break;
+                if ((age.ToLower().Equals("q"))) break;
 
                 int intAge = Utils.ParseInt(age, ui);
                 if(intAge >= 0)
